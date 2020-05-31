@@ -38,6 +38,17 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'WCLP_VERSION', '1.0.0' );
 
 /**
+ * Plugin directory
+ */
+define( 'WCLP_DIR', plugin_dir_path( __FILE__ ) );
+
+/**
+ * Plugin main file name
+ * @uses in plugin update checker
+ */
+define( 'WCLP_FILE_NAME', basename( __FILE__ ) );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wclp-activator.php
  */
@@ -59,11 +70,17 @@ register_activation_hook( __FILE__, 'activate_wclp' );
 register_deactivation_hook( __FILE__, 'deactivate_wclp' );
 
 /**
+ * plugin update checker library
+ * @version 4.9
+ * @link https://github.com/YahnisElsts/plugin-update-checker
+ */
+require plugin_dir_path( __FILE__ ) . 'libs/plugin-update-checker/plugin-update-checker.php';
+
+/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-wclp.php';
-require plugin_dir_path( __FILE__ ) . 'libs/plugin-update-checker/plugin-update-checker.php';
 
 /**
  * Begins execution of the plugin.
