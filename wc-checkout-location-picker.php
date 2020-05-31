@@ -49,11 +49,25 @@ define( 'WCLP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WCLP_FILE_NAME', basename( __FILE__ ) );
 
 /**
+ * Register classes autoloader
+ */
+spl_autoload_register( 'wclp_autoloader' );
+function wclp_autoloader( $class_name ) {
+	$classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+	$class_file  = $classes_dir . $class_name . '.php';
+	if ( file_exists( $class_file ) ) {
+		require_once $class_file;
+	}
+
+	return false;
+}
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wclp-activator.php
  */
 function activate_wclp() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wclp-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/Wclp_Activator.php';
 	Wclp_Activator::activate();
 }
 
@@ -62,7 +76,7 @@ function activate_wclp() {
  * This action is documented in includes/class-wclp-deactivator.php
  */
 function deactivate_wclp() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wclp-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/Wclp_Deactivator.php';
 	Wclp_Deactivator::deactivate();
 }
 
@@ -75,12 +89,6 @@ register_deactivation_hook( __FILE__, 'deactivate_wclp' );
  * @link https://github.com/YahnisElsts/plugin-update-checker
  */
 require plugin_dir_path( __FILE__ ) . 'libs/plugin-update-checker/plugin-update-checker.php';
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wclp.php';
 
 /**
  * Begins execution of the plugin.
