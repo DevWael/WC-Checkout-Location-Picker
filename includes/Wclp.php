@@ -82,6 +82,9 @@ class Wclp {
 
 	}
 
+	/**
+	 * plugin update checker
+	 */
 	public function check_for_update() {
 		Puc_v4_Factory::buildUpdateChecker(
 			'https://github.com/DevWael/WC-Checkout-Location-Picker',
@@ -169,6 +172,7 @@ class Wclp {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+//		$this->loader->add_filter( 'script_loader_tag', $plugin_public, 'mind_defer_scripts',10,3 );
 
 	}
 

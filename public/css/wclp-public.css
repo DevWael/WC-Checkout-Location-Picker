@@ -2,3 +2,8 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+.google-map {
+    width: 100%;
+    height: 600px;
+}
