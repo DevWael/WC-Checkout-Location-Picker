@@ -63,6 +63,7 @@ register_deactivation_hook( __FILE__, 'deactivate_wclp' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-wclp.php';
+require plugin_dir_path( __FILE__ ) . 'libs/plugin-update-checker/plugin-update-checker.php';
 
 /**
  * Begins execution of the plugin.
@@ -79,4 +80,5 @@ function run_wclp() {
 	$plugin->run();
 
 }
+
 run_wclp();
