@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       WC Checkout Location Picker
  * Plugin URI:        https://github.com/DevWael/WC-Checkout-Location-Picker
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Adds google map location picker to woocommerce checkout
  * Version:           1.0.0
  * Author:            Ahmad Wael
  * Author URI:        https://github.com/DevWael
