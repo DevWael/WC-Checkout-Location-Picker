@@ -102,21 +102,14 @@ class Wclp_Public {
 		wp_enqueue_script( $this->plugin_name,
 			plugin_dir_url( __FILE__ ) . 'js/wclp-public.js',
 			false, $this->version, true );
+		if ( get_option( 'wclp_checkout_enabled' ) == 'yes' ) {
+			$maps_url = add_query_arg( array(
+				'key'      => get_option( 'wclp_checkout_map_key' ),
+				'callback' => 'initMap',
+			), 'https://maps.googleapis.com/maps/api/js' );
 
-
-		wp_enqueue_script( 'google-mapszz',
-			'https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap',
-			false, 3, true );
-
-	}
-	function mind_defer_scripts( $tag, $handle, $src ) {
-		$defer = array(
-			'google-mapszz',
-		);
-		if ( in_array( $handle, $defer ) ) {
-			return '<script src="' . $src . '" async defer type="text/javascript"></script>' . "\n";
+			wp_enqueue_script( 'google-mapszz',
+				$maps_url, false, 3, true );
 		}
-
-		return $tag;
 	}
 }

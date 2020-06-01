@@ -79,6 +79,9 @@ class Wclp {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->checkout_options();
+		$this->checkout_map();
+		$this->order_location();
 
 	}
 
@@ -172,8 +175,31 @@ class Wclp {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-//		$this->loader->add_filter( 'script_loader_tag', $plugin_public, 'mind_defer_scripts',10,3 );
+	}
 
+	private function checkout_options() {
+		$options = new Wclp_Options_Page();
+
+		$options->build();
+	}
+
+	/**
+	 * display location map on checkout page
+	 */
+	private function checkout_map() {
+		$checkout = new Wclp_Checkout_Map();
+
+		$this->loader->add_action( 'woocommerce_after_order_notes', $checkout, 'display_map', 11, 1 );
+		$this->loader->add_action( 'woocommerce_checkout_update_order_meta', $checkout, 'save_lat_lng', 11, 1 );
+	}
+
+	/**
+	 * display user selected location on order page
+	 */
+	private function order_location() {
+		$order_location = new Wclp_Order_Location();
+
+		$this->loader->add_action( 'woocommerce_admin_order_data_after_billing_address', $order_location, 'display_location', 11, 1 );
 	}
 
 	/**

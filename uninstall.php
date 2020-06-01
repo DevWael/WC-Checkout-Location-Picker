@@ -29,3 +29,6 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+delete_option( 'wclp_checkout_enabled' );
+delete_option( 'wclp_checkout_map_key' );

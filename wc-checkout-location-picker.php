@@ -107,3 +107,7 @@ function run_wclp() {
 }
 
 run_wclp();
+
+add_action('init',function (){
+//	print_r(get_option( 'wclp_checkout_enabled' ));
+});

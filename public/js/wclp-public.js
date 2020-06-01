@@ -1,7 +1,11 @@
-let map;
+let map, map_selector;
 let markersArray = [];
 let polyline = null;
-let myLatLng = {lat: 23.8859, lng: 45.0792}; //saudi arabia
+let myLatLng = {lat: 24.71212328, lng: 46.67273256}; //saudi arabia
+let hiddenInputs = {
+    latInput: document.getElementById("wclp_lat"),
+    lngInput: document.getElementById("wclp_lng")
+}
 
 function initMap() {
     map_selector = document.getElementsByClassName('google-map')[0];
@@ -46,10 +50,16 @@ function addMarker(latLng) {
         draggable: true
     });
 
+    hiddenInputs.latInput.value = latLng.lat;
+    hiddenInputs.lngInput.value = latLng.lng;
+
     // add listener to redraw the polyline when markers position change
     marker.addListener('position_changed', function (e) {
         console.log('Lat: ' + marker.getPosition().lat());
         console.log('Lng: ' + marker.getPosition().lng());
+
+        hiddenInputs.latInput.value = marker.getPosition().lat();
+        hiddenInputs.lngInput.value = marker.getPosition().lng();
     });
 
     //store the marker object drawn in global array
@@ -77,6 +87,3 @@ function drawPolyline() {
         strokeOpacity: 0.4
     });
 }
-
-// initMap();
-//share link: https://www.google.com/maps/search/?api=1&query=LAT,LNG
