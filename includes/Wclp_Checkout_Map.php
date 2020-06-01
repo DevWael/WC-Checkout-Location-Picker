@@ -13,10 +13,12 @@ class Wclp_Checkout_Map {
 
 	public function display_map( $checkout ) {
 		?>
-        <h2><?php _e( 'Pick your location', 'wclp' ); ?></h2>
-        <div class="google-map" id="google-map"></div>
-        <input type="hidden" name="wclp_lat" id="wclp_lat">
-        <input type="hidden" name="wclp_lng" id="wclp_lng">
+        <div class="wclp-container">
+            <h2><?php _e( 'Pick your location', 'wclp' ); ?></h2>
+            <div class="wclp-google-map" id="wclp-google-map"></div>
+            <input type="hidden" name="wclp_lat" id="wclp_lat">
+            <input type="hidden" name="wclp_lng" id="wclp_lng">
+        </div>
 		<?php
 	}
 

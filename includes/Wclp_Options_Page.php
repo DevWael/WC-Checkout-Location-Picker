@@ -14,7 +14,7 @@ class Wclp_Options_Page {
 		return array(
 			'title'        => __( 'Checkout Location', 'wclp' ),
 			'prefix'       => 'wclp_checkout_',
-			'action'       => 'theme_options',
+			'action'       => 'wclp_checkout_location',
 			'redirect_url' => admin_url( 'admin.php?page=wclp_checkout' ),
 			'setting_page' => array(
 				'parent'      => true, //display as parent or child menu item

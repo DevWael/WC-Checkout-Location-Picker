@@ -8,7 +8,7 @@ let hiddenInputs = {
 }
 
 function initMap() {
-    map_selector = document.getElementsByClassName('google-map')[0];
+    map_selector = document.getElementsByClassName('wclp-google-map')[0];
     map = new google.maps.Map(map_selector, {
         center: myLatLng,
         zoom: 15
