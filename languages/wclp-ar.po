@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Language: ar\n"
+"POT-Creation-Date: 2020-06-02 09:47+0000\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"PO-Revision-Date: 2020-06-02 09:55+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Project-Id-Version: WC Checkout Location Picker\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: العربية\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Version: 2.3.4; wp-5.4"
+
+#: includes/Wclp_Checkout_Map.php:18
+msgid "Pick your location"
+msgstr "حدد موقعك"
+
+#: includes/Wclp_Order_Location.php:18
+msgid "Customer Location"
+msgstr "مكان الزبون"
+
+#: includes/Wclp_Options_Page.php:15 includes/Wclp_Options_Page.php:23
+msgid "Checkout Location"
+msgstr "إعدادات تحديد الموقع"
+
+#: includes/Wclp_Options_Page.php:32
+msgid "Activate"
+msgstr "تفعيل"
+
+#: includes/Wclp_Options_Page.php:34
+msgid "Yes"
+msgstr "نعم"
+
+#: includes/Wclp_Options_Page.php:35
+msgid "No"
+msgstr "لا"
+
+#: includes/Wclp_Options_Page.php:41
+msgid "Google Maps API Key"
+msgstr "كود خرائط جوجل"
+
+#. Name of the plugin
+msgid "WC Checkout Location Picker"
+msgstr "تحديد الموقع فى صفحة انهاء الطلب للوكومرس"
+
+#. Description of the plugin
+msgid "Adds google map location picker to woocommerce checkout"
+msgstr "اضافة تحديد الموقع على خرائط جوجل فى صفحة انهاء الطلب لمتاجر ووكومرس"
+
+#. URI of the plugin
+msgid "https://github.com/DevWael/WC-Checkout-Location-Picker"
+msgstr "https://github.com/DevWael/WC-Checkout-Location-Picker"
+
+#. Author of the plugin
+msgid "Ahmad Wael"
+msgstr "احمد وائل"
+
+#. Author URI of the plugin
+msgid "https://github.com/DevWael"
+msgstr "https://github.com/DevWael"

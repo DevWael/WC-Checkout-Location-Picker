@@ -1,0 +1,56 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Language: \n"
+"POT-Creation-Date: 2020-06-02 09:47+0000\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: includes/Wclp_Checkout_Map.php:18
+msgid "Pick your location"
+msgstr ""
+
+#: includes/Wclp_Order_Location.php:18
+msgid "Customer Location"
+msgstr ""
+
+#: includes/Wclp_Options_Page.php:15 includes/Wclp_Options_Page.php:23
+msgid "Checkout Location"
+msgstr ""
+
+#: includes/Wclp_Options_Page.php:32
+msgid "Activate"
+msgstr ""
+
+#: includes/Wclp_Options_Page.php:34
+msgid "Yes"
+msgstr ""
+
+#: includes/Wclp_Options_Page.php:35
+msgid "No"
+msgstr ""
+
+#: includes/Wclp_Options_Page.php:41
+msgid "Google Maps API Key"
+msgstr ""
+
+#. Name of the plugin
+msgid "WC Checkout Location Picker"
+msgstr ""
+
+#. Description of the plugin
+msgid "Adds google map location picker to woocommerce checkout"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/DevWael/WC-Checkout-Location-Picker"
+msgstr ""
+
+#. Author of the plugin
+msgid "Ahmad Wael"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/DevWael"
+msgstr ""
