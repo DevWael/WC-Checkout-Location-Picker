@@ -84,32 +84,20 @@ class Wclp_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
+		if ( class_exists( 'woocommerce' ) && is_checkout() ) {
+			wp_enqueue_script( $this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'js/wclp-public.js',
+				false, $this->version, true );
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wclp_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wclp_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-//		wp_enqueue_script( 'location-pickerzz', 'https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js', array( 'jquery' ), false, true );
+			if ( get_option( 'wclp_checkout_enabled' ) == 'yes' ) {
+				$maps_url = add_query_arg( array(
+					'key'      => get_option( 'wclp_checkout_map_key' ),
+					'callback' => 'wclpInitMap',
+				), 'https://maps.googleapis.com/maps/api/js' );
 
-
-		wp_enqueue_script( $this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'js/wclp-public.js',
-			false, $this->version, true );
-		if ( get_option( 'wclp_checkout_enabled' ) == 'yes' ) {
-			$maps_url = add_query_arg( array(
-				'key'      => get_option( 'wclp_checkout_map_key' ),
-				'callback' => 'initMap',
-			), 'https://maps.googleapis.com/maps/api/js' );
-
-			wp_enqueue_script( 'google-mapszz',
-				$maps_url, false, 3, true );
+				wp_enqueue_script( 'wclp-google-maps',
+					$maps_url, false, 3, true );
+			}
 		}
 	}
 }

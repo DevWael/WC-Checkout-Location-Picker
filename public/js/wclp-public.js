@@ -1,13 +1,11 @@
 let map, map_selector;
-let markersArray = [];
-let polyline = null;
 let myLatLng = {lat: 24.71212328, lng: 46.67273256}; //saudi arabia
 let hiddenInputs = {
     latInput: document.getElementById("wclp_lat"),
     lngInput: document.getElementById("wclp_lng")
 }
 
-function initMap() {
+function wclpInitMap() {
     map_selector = document.getElementsByClassName('wclp-google-map')[0];
     map = new google.maps.Map(map_selector, {
         center: myLatLng,
@@ -20,15 +18,15 @@ function initMap() {
                 lng: position.coords.longitude
             }
             map.setCenter(myLatLng);
-            addMarker(myLatLng);
-        }, showError);
+            wclpAddMarker(myLatLng);
+        }, wclpShowLocationError);
     }
 }
 
-function showError(error) {
+function wclpShowLocationError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            addMarker(myLatLng);
+            wclpAddMarker(myLatLng);
             break;
         case error.POSITION_UNAVAILABLE:
             map_selector.innerHTML = "Location information is unavailable."
@@ -42,8 +40,8 @@ function showError(error) {
     }
 }
 
-// define function to add marker at given lat & lng
-function addMarker(latLng) {
+// define function to add map marker at given lat & lng
+function wclpAddMarker(latLng) {
     let marker = new google.maps.Marker({
         map: map,
         position: latLng,
@@ -60,30 +58,5 @@ function addMarker(latLng) {
 
         hiddenInputs.latInput.value = marker.getPosition().lat();
         hiddenInputs.lngInput.value = marker.getPosition().lng();
-    });
-
-    //store the marker object drawn in global array
-    markersArray.push(marker);
-}
-
-// define function to draw polyline that connect markers' position
-function drawPolyline() {
-    let markersPositionArray = [];
-    // obtain latlng of all markers on map
-    markersArray.forEach(function (e) {
-        markersPositionArray.push(e.getPosition());
-    });
-
-    // check if there is already polyline drawn on map
-    // remove the polyline from map before we draw new one
-    if (polyline !== null) {
-        polyline.setMap(null);
-    }
-
-    // draw new polyline at markers' position
-    polyline = new google.maps.Polyline({
-        map: map,
-        path: markersPositionArray,
-        strokeOpacity: 0.4
     });
 }

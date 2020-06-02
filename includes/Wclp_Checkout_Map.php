@@ -12,18 +12,20 @@ class Wclp_Checkout_Map {
 
 
 	public function display_map( $checkout ) {
-		?>
-        <div class="wclp-container">
-            <h2><?php _e( 'Pick your location', 'wclp' ); ?></h2>
-            <div class="wclp-google-map" id="wclp-google-map"></div>
-            <input type="hidden" name="wclp_lat" id="wclp_lat">
-            <input type="hidden" name="wclp_lng" id="wclp_lng">
-        </div>
-		<?php
+		if ( $this->enabled == 'yes' && $this->api_key ) {
+			?>
+            <div class="wclp-container">
+                <h2><?php _e( 'Pick your location', 'wclp' ); ?></h2>
+                <div class="wclp-google-map" id="wclp-google-map"></div>
+                <input type="hidden" name="wclp_lat" id="wclp_lat">
+                <input type="hidden" name="wclp_lng" id="wclp_lng">
+            </div>
+			<?php
+		}
 	}
 
 	function save_lat_lng( $order_id ) {
-		if ( ! empty( $_POST['wclp_lat'] ) ) {
+		if ( ! empty( $_POST['wclp_lat'] ) && $this->enabled == 'yes' ) {
 			update_post_meta( $order_id, 'Latitude', sanitize_text_field( $_POST['wclp_lat'] ) );
 			update_post_meta( $order_id, 'Longitude', sanitize_text_field( $_POST['wclp_lng'] ) );
 		}
