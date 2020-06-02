@@ -531,7 +531,9 @@ if ( ! class_exists( 'Wclp_Options_Builder' ) ) {
 
 		private function submit_button() {
 			?>
-            <button type="submit" class="button-primary woocommerce-save-button">Save Changes</button>
+            <button type="submit" class="button-primary woocommerce-save-button">
+				<?php _e( 'Save Changes' ); ?>
+            </button>
 			<?php
 		}
 	}

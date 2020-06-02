@@ -179,8 +179,7 @@ class Wclp {
 
 	private function checkout_options() {
 		$options = new Wclp_Options_Page();
-
-		$options->build();
+		$this->loader->add_action( 'plugins_loaded', $options, 'build', 11 );
 	}
 
 	/**
